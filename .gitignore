@@ -18,3 +18,9 @@ bin/
 
 # AntLR #
 output/
+
+#properties files
+#
+#
+
+src/main/resources/fenixedu.properties
