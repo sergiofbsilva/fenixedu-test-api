@@ -60,8 +60,11 @@ public class TestAPI {
     }
 
     static String doit(String code) {
-        System.out.println(code);
+        System.out.println("code: " + code);
         FenixEduUserDetails userDetailsFromCode = client.getUserDetailsFromCode(code);
+        System.out.println("accessToken: " + userDetailsFromCode.getAuthorization().asOAuthAuthorization().getOAuthAccessToken());
+        System.out.println("refreshToken: "
+                + userDetailsFromCode.getAuthorization().asOAuthAuthorization().getOAuthRefreshToken());
         JsonObject person = client.getPerson(userDetailsFromCode.getAuthorization());
         return person.get("name").getAsString();
     }
